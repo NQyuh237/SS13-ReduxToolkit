@@ -1,0 +1,68 @@
+{
+    "products":[{
+        "id": 1,
+        "ProductName": "Thit Lon",
+        "Price": 120000,
+        "From": "Ha Noi"
+    },
+    {
+      "id": 2,
+      "ProductName": "Bánh Mì Hamburger",
+      "Price": 35000,
+      "From": "Sài Gòn"
+    },
+    {
+      "id": 3,
+      "ProductName": "Phở Gà",
+      "Price": 55000,
+      "From": "Hà Nội"
+    },
+    {
+      "id": 4,
+      "ProductName": "Cà Phê Sữa Đá",
+      "Price": 25000,
+      "From": "Đà Lạt"
+    },
+    {
+      "id": 5,
+      "ProductName": "Bún Riêu Cua",
+      "Price": 48000,
+      "From": "Hồ Chí Minh"
+    },
+    {
+      "id": 6,
+      "ProductName": "Gạo Lứt",
+      "Price": 30000,
+      "From": "Đồng Tháp"
+    },
+    {
+      "id": 7,
+      "ProductName": "Sữa Tươi",
+      "Price": 22000,
+      "From": "Nha Trang"
+    },
+    {
+      "id": 8,
+      "ProductName": "Bánh Mì Pate",
+      "Price": 18000,
+      "From": "Sài Gòn"
+    },
+    {
+      "id": 9,
+      "ProductName": "Mì Quảng",
+      "Price": 45000,
+      "From": "Đà Nẵng"
+    },
+    {
+      "id": 10,
+      "ProductName": "Nước Mắm Phú Quốc",
+      "Price": 28000,
+      "From": "Phú Quốc"
+    },
+    {
+      "id": 11,
+      "ProductName": "Bánh Tráng Trộn",
+      "Price": 15000,
+      "From": "Sài Gòn"
+    }]
+}
