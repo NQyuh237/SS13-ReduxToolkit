@@ -1,77 +1,46 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-// goi api lay thong tin tat ca product
-export const getAllProduct = createAsyncThunk(
-  "product/getAllProduct",
-  async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/products");
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
-// goi api xoa thong tin 1 product theo id
-export const deleteById = createAsyncThunk(
-  "product/deleteById",
-  async (productId) => {
-    try {
-      await axios.get(`http://localhost:3000/products/${productId}`);
-      return productId;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
-// api them moi san pham
-export const createProduct = createAsyncThunk(
-  "product/createProduct",
-  async (product) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/products",
-        product
-      );
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+// import axios from "axios";
+import {
+  createProduct,
+  deleteById,
+  getAllProduct,
+  updateProduct,
+} from "../../services/productService";
 
 const productSlice = createSlice({
   name: "products",
   initialState: {
     data: [],
-    status: "idle",
+    status: "idle", //trang thai truoc khi duoc chay
     error: null,
   },
-  reducers: [],
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getAllProduct.pending, (state) => {
-        state.status = "loading";
+        state.status = "Loading"; //cho
       })
       .addCase(getAllProduct.fulfilled, (state, action) => {
-        state.status = "Successfully"; // thanh cong
-        state.data = action.payload; // du lieu tra ve
+        // console.log(action);
+        state.status = "Successfull"; //thanh cong
+        state.data = action.payload; //du lieu tra ve
       })
       .addCase(getAllProduct.rejected, (state, action) => {
-        state.status = "Failed"; // that bai
-        state.error = action.error.message; // noi dung loi
+        state.status = "Failed"; //that bai
+        state.error = action.error.message; //noi dung loi
       })
       .addCase(deleteById.fulfilled, (state, action) => {
-        state.status = state.data.filter(
-          (product) => product.id !== action.payload
-        );
+        state.data = state.data.filter((st) => st.id !== action.payload);
       })
-      .addCase(createProduct.fulfilled, (state, action) => { //immer
-        console.log(createProduct);
-        // state.data.push(action.payload);
+      .addCase(createProduct.fulfilled, (state, action) => {
+        state.data.push(action.payload);
+        // console.log(action);
       })
+      .addCase(updateProduct.fulfilled, (state, action) => {
+        [...state.data, action.payload];
+        // console.log(action);
+      });
   },
 });
+
 export default productSlice.reducer;

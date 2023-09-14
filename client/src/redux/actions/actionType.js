@@ -5,6 +5,7 @@ export const act_increase = () => {
     type: ACT_INCREASE,
   };
 };
+
 export const act_decrease = () => {
   return {
     type: ACT_DECREASE,
